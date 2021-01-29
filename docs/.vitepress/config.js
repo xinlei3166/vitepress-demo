@@ -19,6 +19,7 @@ module.exports = {
 
     nav: [
       { text: '文档', link: '/guide/' },
+      { text: '组件', link: '/components/button' },
       { text: 'API 参考', link: '/api/' },
       { text: '插件', link: '/plugins/' },
       {
@@ -31,9 +32,32 @@ module.exports = {
     sidebar: {
       '/api/': 'auto',
       '/plugins/': 'auto',
+      '/components/': getComponentsSidebar(),
       '/guide/': getGuideSidebar()
     }
   }
+}
+
+function getComponentsSidebar() {
+  return [
+    {
+      text: '组件',
+      children: [
+        {
+          text: 'Button 按钮',
+          link: '/components/button'
+        },
+        {
+          text: 'Tabs 标签页',
+          link: '/components/tabs'
+        },
+        {
+          text: 'Modal 对话框',
+          link: '/components/modal'
+        }
+      ]
+    }
+  ]
 }
 
 function getGuideSidebar() {

@@ -6,9 +6,19 @@
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:serve": "vitepress serve docs",
+    "register:components": "node docs/.vitepress/scripts/register-components.js"
   },
   "devDependencies": {
-    "vitepress": "^0.11.4"
+    "camelcase": "^6.2.0",
+    "globby": "^11.0.2",
+    "lodash": "^4.17.20",
+    "prettier": "^2.2.1",
+    "vite-plugin-components": "^0.6.6",
+    "vitepress": "^0.11.4",
+    "yaml": "^1.10.0"
+  },
+  "dependencies": {
+    "element-plus": "^1.0.2-beta.30"
   }
 }
