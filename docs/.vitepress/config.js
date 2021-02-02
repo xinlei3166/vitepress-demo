@@ -35,6 +35,21 @@ module.exports = {
       '/components/': getComponentsSidebar(),
       '/guide/': getGuideSidebar()
     }
+  },
+  markdown: {
+    // options for markdown-it-anchor
+    anchor: { permalink: false },
+
+    // options for markdown-it-toc
+    toc: { includeLevel: [1, 2] },
+
+    config: (md) => {
+      // use more markdown-it plugins
+      // md.use(require('markdown-it-xxx'))
+      const { demoBlock, demoCode } = require('./plugins/md-loader')
+      demoBlock(md)
+      demoCode(md) // 代码高亮的语言默认为vue，可传入第二个参数自定义语言 demoCode(md, 'html')
+    }
   }
 }
 

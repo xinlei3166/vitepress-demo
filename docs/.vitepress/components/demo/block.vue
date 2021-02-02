@@ -1,10 +1,12 @@
 <template>
   <div class="demo-block" :class="[customClass ? customClass : '']">
-    <slot></slot>
+    <div class="source">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
-<script type="text/babel">
+<script>
 export default {
   name: 'DemoBlock',
   props: {
@@ -15,9 +17,12 @@ export default {
 
 <style scoped>
 .demo-block {
+  margin-top: 10px;
+}
+.demo-block .source {
   border: solid 1px #ebebeb;
   border-radius: 3px;
-  margin-top: 10px;
+  box-sizing: border-box;
   padding: 24px;
   transition: .2s;
 }

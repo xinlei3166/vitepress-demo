@@ -194,11 +194,6 @@
   resolved "https://nexus.rouchi.com/repository/npm-group/@polka/url/-/url-1.0.0-next.11.tgz#aeb16f50649a91af79dbe36574b66d0f9e4d9f71"
   integrity sha1-rrFvUGSaka952+NldLZtD55Nn3E=
 
-"@popperjs/core@^2.4.4":
-  version "2.6.0"
-  resolved "https://nexus.rouchi.com/repository/npm-group/@popperjs/core/-/core-2.6.0.tgz#f022195afdfc942e088ee2101285a1d31c7d727f"
-  integrity sha1-8CIZWv38lC4IjuIQEoWh0xx9cn8=
-
 "@vitejs/plugin-vue@^1.1.0":
   version "1.1.0"
   resolved "https://nexus.rouchi.com/repository/npm-group/@vitejs/plugin-vue/-/plugin-vue-1.1.0.tgz#8ae0b11388897b07259c9e5198c0e3fb5e4b37d9"
@@ -344,15 +339,15 @@ argparse@^1.0.7:
   dependencies:
     sprintf-js "~1.0.2"
 
+argparse@^2.0.1:
+  version "2.0.1"
+  resolved "https://nexus.rouchi.com/repository/npm-group/argparse/-/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"
+  integrity sha1-JG9Q88p4oyQPbJl+ipvR6sSeSzg=
+
 array-union@^2.1.0:
   version "2.1.0"
   resolved "https://nexus.rouchi.com/repository/npm-group/array-union/-/array-union-2.1.0.tgz#b798420adbeb1de828d84acd8a2e23d3efe85e8d"
   integrity sha1-t5hCCtvrHego2ErNii4j0+/oXo0=
-
-async-validator@^3.4.0:
-  version "3.5.1"
-  resolved "https://nexus.rouchi.com/repository/npm-group/async-validator/-/async-validator-3.5.1.tgz#cd62b9688b2465f48420e27adb47760ab1b5559f"
-  integrity sha1-zWK5aIskZfSEIOJ620d2CrG1VZ8=
 
 at-least-node@^1.0.0:
   version "1.0.0"
@@ -535,11 +530,6 @@ csstype@^2.6.8:
   resolved "https://nexus.rouchi.com/repository/npm-group/csstype/-/csstype-2.6.14.tgz#004822a4050345b55ad4dcc00be1d9cf2f4296de"
   integrity sha1-AEgipAUDRbVa1NzAC+HZzy9Clt4=
 
-dayjs@1.x:
-  version "1.10.4"
-  resolved "https://nexus.rouchi.com/repository/npm-group/dayjs/-/dayjs-1.10.4.tgz#8e544a9b8683f61783f570980a8a80eaf54ab1e2"
-  integrity sha1-jlRKm4aD9heD9XCYCoqA6vVKseI=
-
 debug@2.6.9:
   version "2.6.9"
   resolved "https://nexus.rouchi.com/repository/npm-group/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -585,19 +575,6 @@ dir-glob@^3.0.1:
   dependencies:
     path-type "^4.0.0"
 
-element-plus@^1.0.2-beta.30:
-  version "1.0.2-beta.30"
-  resolved "https://nexus.rouchi.com/repository/npm-group/element-plus/-/element-plus-1.0.2-beta.30.tgz#9b16882b97169df0b832c8b35c46cf44b256dbcd"
-  integrity sha1-mxaIK5cWnfC4MsizXEbPRLJW280=
-  dependencies:
-    "@popperjs/core" "^2.4.4"
-    async-validator "^3.4.0"
-    dayjs "1.x"
-    lodash "^4.17.20"
-    mitt "^2.1.0"
-    normalize-wheel "^1.0.1"
-    resize-observer-polyfill "^1.5.1"
-
 emojis-list@^3.0.0:
   version "3.0.0"
   resolved "https://nexus.rouchi.com/repository/npm-group/emojis-list/-/emojis-list-3.0.0.tgz#5570662046ad29e2e916e71aae260abdff4f6a78"
@@ -607,6 +584,11 @@ entities@~2.0.0:
   version "2.0.3"
   resolved "https://nexus.rouchi.com/repository/npm-group/entities/-/entities-2.0.3.tgz#5c487e5742ab93c15abb5da22759b8590ec03b7f"
   integrity sha1-XEh+V0Krk8Fau12iJ1m4WQ7AO38=
+
+entities@~2.1.0:
+  version "2.1.0"
+  resolved "https://nexus.rouchi.com/repository/npm-group/entities/-/entities-2.1.0.tgz#992d3129cf7df6870b96c57858c249a120f8b8b5"
+  integrity sha1-mS0xKc999ocLlsV4WMJJoSD4uLU=
 
 esbuild@^0.8.26:
   version "0.8.33"
@@ -858,6 +840,13 @@ linkify-it@^2.0.0:
   dependencies:
     uc.micro "^1.0.1"
 
+linkify-it@^3.0.1:
+  version "3.0.2"
+  resolved "https://nexus.rouchi.com/repository/npm-group/linkify-it/-/linkify-it-3.0.2.tgz#f55eeb8bc1d3ae754049e124ab3bb56d97797fb8"
+  integrity sha1-9V7ri8HTrnVASeEkqzu1bZd5f7g=
+  dependencies:
+    uc.micro "^1.0.1"
+
 loader-utils@^1.1.0:
   version "1.4.0"
   resolved "https://nexus.rouchi.com/repository/npm-group/loader-utils/-/loader-utils-1.4.0.tgz#c579b5e34cb34b1a74edc6c1fb36bfa371d5a613"
@@ -936,6 +925,17 @@ markdown-it@^10.0.0:
     mdurl "^1.0.1"
     uc.micro "^1.0.5"
 
+markdown-it@^12.0.4:
+  version "12.0.4"
+  resolved "https://nexus.rouchi.com/repository/npm-group/markdown-it/-/markdown-it-12.0.4.tgz#eec8247d296327eac3ba9746bdeec9cfcc751e33"
+  integrity sha1-7sgkfSljJ+rDupdGve7Jz8x1HjM=
+  dependencies:
+    argparse "^2.0.1"
+    entities "~2.1.0"
+    linkify-it "^3.0.1"
+    mdurl "^1.0.1"
+    uc.micro "^1.0.5"
+
 matchit@^1.0.0:
   version "1.1.0"
   resolved "https://nexus.rouchi.com/repository/npm-group/matchit/-/matchit-1.1.0.tgz#c4ccf17d9c824cc1301edbcffde9b75a61d10a7c"
@@ -1002,11 +1002,6 @@ minimist@^1.2.0, minimist@^1.2.5:
   resolved "https://nexus.rouchi.com/repository/npm-group/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
   integrity sha1-Z9ZgFLZqaoqqDAg8X9WN9OTpdgI=
 
-mitt@^2.1.0:
-  version "2.1.0"
-  resolved "https://nexus.rouchi.com/repository/npm-group/mitt/-/mitt-2.1.0.tgz#f740577c23176c6205b121b2973514eade1b2230"
-  integrity sha1-90BXfCMXbGIFsSGylzUU6t4bIjA=
-
 ms@2.0.0:
   version "2.0.0"
   resolved "https://nexus.rouchi.com/repository/npm-group/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -1026,11 +1021,6 @@ negotiator@0.6.2:
   version "0.6.2"
   resolved "https://nexus.rouchi.com/repository/npm-group/negotiator/-/negotiator-0.6.2.tgz#feacf7ccf525a77ae9634436a64883ffeca346fb"
   integrity sha1-/qz3zPUlp3rpY0Q2pkiD/+yjRvs=
-
-normalize-wheel@^1.0.1:
-  version "1.0.1"
-  resolved "https://nexus.rouchi.com/repository/npm-group/normalize-wheel/-/normalize-wheel-1.0.1.tgz#aec886affdb045070d856447df62ecf86146ec45"
-  integrity sha1-rsiGr/2wRQcNhWRH32Ls+GFG7EU=
 
 on-headers@~1.0.2:
   version "1.0.2"
@@ -1187,11 +1177,6 @@ readable-stream@^3.4.0:
     inherits "^2.0.3"
     string_decoder "^1.1.1"
     util-deprecate "^1.0.1"
-
-resize-observer-polyfill@^1.5.1:
-  version "1.5.1"
-  resolved "https://nexus.rouchi.com/repository/npm-group/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
-  integrity sha1-DpAg3T0hAkRY1OvSfiPkAmmBBGQ=
 
 resolve@^1.19.0:
   version "1.19.0"

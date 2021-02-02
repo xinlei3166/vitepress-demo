@@ -20,8 +20,12 @@ function registerTemplate(path, componentName) {
 }
 
 function componentTemplate(path) {
-  const componentName = camelCase(path.slice(0, -4).replace(/[/\\]/g, '-'), {pascalCase: true})
-
+  let componentName = camelCase(path.slice(0, -4).replace(/[/\\]/g, '-'), {pascalCase: true})
+  // 去掉Index，例如DemoIndex替换为Demo
+  if (componentName.includes('Index')) {
+    const endIndex = componentName.indexOf('Index')
+    componentName = componentName.substring(0, endIndex)
+  }
   return {
     import: importTemplate(path, componentName),
     register: registerTemplate(path, componentName),
