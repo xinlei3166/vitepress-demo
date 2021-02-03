@@ -5,7 +5,7 @@ module.exports = {
     [
       'style',
       {},
-      'img { border-radius: 10px }' + 'h1.title { margin-left: 0.5em }'
+      'img { border-radius: 10px }' + 'h1.title { margin-left: 0.5em }' + '.container { max-width: unset !important; padding: 0 12.5rem 4rem 3rem !important;}' + '.next-and-prev-link .container { padding: 1rem 0 0 0 !important;}'
     ]
   ],
   themeConfig: {
@@ -15,7 +15,7 @@ module.exports = {
 
     // editLinks: true,
     // editLinkText: 'Suggest changes to this page',
-    lastUpdated: 'Last Updated',
+    // lastUpdated: 'Last Updated',
 
     nav: [
       { text: '文档', link: '/guide/' },

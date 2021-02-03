@@ -31,9 +31,9 @@ exports.demoCode = (md, lang = 'vue') => {
       const description = m && m.length > 1 ? m[1] : ''
       // md.render(description).html
       return `
-        <template #description>
+        ${description ? `<template #description>
           <div>${md.renderInline(description)}</div>
-        </template>
+        </template>` : ''}
         <template #highlight>
           <div class="language-${lang}">${highlight(token.content, lang)}</div>
         </template>`

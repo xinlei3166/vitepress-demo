@@ -7,10 +7,10 @@
       <slot/>
     </div>
     <div class="meta" ref="meta">
-      <div class="description" v-if="$slots.description">
+      <div v-if="$slots.description" class="description" ref="description">
         <slot name="description"/>
       </div>
-      <div class="highlight">
+      <div class="highlight" ref="highlight">
         <slot name="highlight"/>
       </div>
     </div>
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { ref, reactive, computed, onMounted } from 'vue'
+import { ref, reactive, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
 
 export default {
   name: 'DemoBlock',
@@ -54,17 +54,59 @@ export default {
       return isExpanded.value ? '隐藏代码' : '显示代码'
     })
 
+    // template refs
+    const highlight = ref(null)
+    const description = ref(null)
+    const meta = ref(null)
+    const control = ref(null)
+
+    const scrollParent = ref(null)
+    const codeAreaHeight = computed(() => {
+      if (description.value) {
+        return description.value.clientHeight + highlight.value.clientHeight + 20
+      }
+      return highlight.value.clientHeight
+    })
+
+    const scrollHandler = () => {
+      const { top, bottom, left } = meta.value.getBoundingClientRect()
+      const innerHeight = window.innerHeight || document.body.clientHeight
+      fixedControl.value = bottom > innerHeight && top + 44 <= innerHeight
+      control.value.style.left = fixedControl.value ? `${ left }px` : '0'
+    }
+
+    const removeScrollHandler = () => {
+      scrollParent.value && scrollParent.value.removeEventListener('scroll', scrollHandler)
+    }
+
+    watch(isExpanded, val => {
+      meta.value.style.height = val ? `${ codeAreaHeight.value + 1 }px` : '0'
+      if (!val) {
+        fixedControl.value = false
+        control.value.style.left = '0'
+        removeScrollHandler()
+        return
+      }
+      setTimeout(() => {
+        window.addEventListener('scroll', scrollHandler)
+        scrollHandler()
+      }, 300)
+    })
+
     onMounted(() => {
-      context.$nextTick(() => {
-        let highlight = context.$el.getElementsByClassName('highlight')[0]
-        if (context.$el.getElementsByClassName('description').length === 0) {
-          highlight.style.width = '100%'
-          highlight.borderRight = 'none'
+      nextTick(() => {
+        if (!description.value) {
+          highlight.value.style.width = '100%'
         }
       })
     })
 
-    return { blockClass, hover, fixedControl, isExpanded, controlText }
+
+    onBeforeUnmount(() => {
+      removeScrollHandler()
+    })
+
+    return { blockClass, hover, fixedControl, isExpanded, controlText, highlight, description, meta, control }
   }
 }
 </script>
@@ -123,7 +165,9 @@ export default {
 .demo-block-control.is-fixed {
   position: fixed;
   bottom: 0;
-  width: 868px;
+  width: calc(100% - 320px - 48px - 200px - 1px);
+  border-right: solid 1px #eaeefb;
+  z-index: 1;
 }
 
 .demo-block-control .control-icon {
@@ -140,12 +184,13 @@ export default {
   transform: translateX(-30px);
   font-size: 14px;
   line-height: 44px;
+  font-weight: 500;
   transition: .3s;
   display: inline-block;
 }
 
 .demo-block-control:hover {
-  color: #409EFF;
+  color: var(--c-brand);
   background-color: #f9fafc;
 }
 

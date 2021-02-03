@@ -9,7 +9,6 @@ const path = require('path')
 const vitePressDir = 'docs/.vitepress'
 const componentDir = 'components'
 const outputPath = 'theme/register-components.js'
-console.log(path.join(vitePressDir, componentDir))
 
 function importTemplate(path, componentName) {
   return `import ${componentName} from '../${componentDir}/${path}'`
