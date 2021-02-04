@@ -4,19 +4,21 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
+    "docs:dev": "yarn run register:components && vitepress dev docs",
+    "docs:build": "yarn run register:components && vitepress build docs",
     "docs:serve": "vitepress serve docs",
-    "register:components": "node docs/.vitepress/scripts/register-components.js"
+    "register:components": "node scripts/register-components.js"
   },
   "devDependencies": {
     "camelcase": "^6.2.0",
     "globby": "^11.0.2",
-    "lodash": "^4.17.20",
     "markdown-it": "^12.0.4",
     "prettier": "^2.2.1",
-    "vitepress": "^0.11.4",
+    "vite": "^2.0.0-beta.64",
+    "vitepress": "^0.11.5",
     "yaml": "^1.10.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "lodash-es": "^4.17.20"
+  }
 }

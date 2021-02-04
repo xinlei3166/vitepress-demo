@@ -34,6 +34,7 @@
 
 <script>
 import { ref, reactive, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { throttle } from 'lodash-es'
 
 export default {
   name: 'DemoBlock',
@@ -60,7 +61,6 @@ export default {
     const meta = ref(null)
     const control = ref(null)
 
-    const scrollParent = ref(null)
     const codeAreaHeight = computed(() => {
       if (description.value) {
         return description.value.clientHeight + highlight.value.clientHeight + 20
@@ -68,15 +68,15 @@ export default {
       return highlight.value.clientHeight
     })
 
-    const scrollHandler = () => {
+    const _scrollHandler = () => {
       const { top, bottom, left } = meta.value.getBoundingClientRect()
       const innerHeight = window.innerHeight || document.body.clientHeight
       fixedControl.value = bottom > innerHeight && top + 44 <= innerHeight
       control.value.style.left = fixedControl.value ? `${ left }px` : '0'
     }
-
+    const scrollHandler = throttle(_scrollHandler, 200)
     const removeScrollHandler = () => {
-      scrollParent.value && scrollParent.value.removeEventListener('scroll', scrollHandler)
+      window.removeEventListener('scroll', scrollHandler)
     }
 
     watch(isExpanded, val => {
@@ -89,7 +89,7 @@ export default {
       }
       setTimeout(() => {
         window.addEventListener('scroll', scrollHandler)
-        scrollHandler()
+        _scrollHandler()
       }, 300)
     })
 

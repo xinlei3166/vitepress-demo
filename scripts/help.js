@@ -3,7 +3,7 @@ const yaml = require('yaml')
 const path = require('path')
 const fs = require('fs')
 
-const prettierConfigPath = '../../../.prettierrc'
+const prettierConfigPath = '../.prettierrc'
 exports.format = (content, userOptions = { parser: 'javascript' }) => {
   const defaultOptionBuffer = fs.readFileSync(
     path.resolve(__dirname, prettierConfigPath)

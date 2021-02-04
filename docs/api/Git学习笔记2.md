@@ -1,13 +1,3 @@
----
-title: Git学习笔记
-tags:
-    - Git
-categories:
-    - Git
----
-
-[TOC]
-
 # Git简介
 
 ## 描述
