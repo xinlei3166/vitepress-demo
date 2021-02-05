@@ -14,7 +14,6 @@
     "globby": "^11.0.2",
     "markdown-it": "^12.0.4",
     "prettier": "^2.2.1",
-    "vite": "^2.0.0-beta.64",
     "vitepress": "^0.11.5",
     "yaml": "^1.10.0"
   },
