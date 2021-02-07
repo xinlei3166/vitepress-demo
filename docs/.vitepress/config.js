@@ -8,6 +8,7 @@ module.exports = {
       'img { border-radius: 10px }' + 'h1.title { margin-left: 0.5em }' + '.container { max-width: unset !important; padding: 0 12.5rem 4rem 3rem !important;}' + '.next-and-prev-link .container { padding: 1rem 0 0 0 !important;}'
     ]
   ],
+  base: '/vitepress-demo/',
   themeConfig: {
     repo: 'xinlei3166/vitepress-demo',
     docsDir: 'docs',

@@ -17,4 +17,4 @@ git add -A
 git commit -m 'deploy to the gh-pages'
 
 # 如果发布到 https://<USERNAME>.github.io
-git push -f git@github.com:xinlei3166/vitepress-demo.git gh-pages
+git push -f git@github.com:xinlei3166/vitepress-demo.git master:gh-pages
