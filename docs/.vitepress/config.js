@@ -81,12 +81,12 @@ function getGuideSidebar() {
       text: '指南',
       children: [
         {
-          text: 'Git学习笔记1',
-          link: '/guide/Git学习笔记1'
+          text: '文档1',
+          link: '/guide/button'
         },
         {
-          text: 'Git学习笔记2',
-          link: '/guide/Git学习笔记2'
+          text: '文档2',
+          link: '/guide/modal'
         }
       ]
     },
@@ -94,12 +94,12 @@ function getGuideSidebar() {
       text: '教程',
       children: [
         {
-          text: 'Git学习笔记1',
-          link: '/guide/Git学习笔记1'
+          text: '教程1',
+          link: '/guide/button'
         },
         {
-          text: 'Git学习笔记2',
-          link: '/guide/Git学习笔记2'
+          text: '教程2',
+          link: '/guide/modal'
         }
       ]
     }

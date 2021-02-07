@@ -20,10 +20,7 @@
         :class="{ 'is-fixed': fixedControl }"
         @click="isExpanded=!isExpanded">
       <transition name="arrow-slide">
-        <svg :class="['icon', 'control-icon',  { 'hovering': hover }]" aria-hidden="true">
-          <use v-show="!isExpanded" xlink:href="#icon-caret-down"></use>
-          <use v-show="isExpanded" xlink:href="#icon-caret-up"></use>
-        </svg>
+        <i :class="['iconfont', 'control-icon', { 'icon-caret-down': !isExpanded, 'icon-caret-up': isExpanded, 'hovering': hover }]"></i>
       </transition>
       <transition name="text-slide">
         <span v-show="hover" class="control-text">{{ controlText }}</span>
@@ -33,7 +30,7 @@
 </template>
 
 <script>
-import { ref, reactive, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { ref, reactive, computed, watch, onMounted, onBeforeUnmount, nextTick, getCurrentInstance } from 'vue'
 import { throttle } from 'lodash-es'
 
 export default {
@@ -42,8 +39,9 @@ export default {
     customClass: String
   },
   setup (props, context) {
-    const hrefArr = window.location.href.split('/')
-    const component = hrefArr[hrefArr.length - 1].split('.')[0]
+    const vm = getCurrentInstance()
+    const pathArr = vm.appContext.config.globalProperties.$page.relativePath.split('/')
+    const component = pathArr[pathArr.length - 1].split('.')[0]
     const blockClass = computed(() => {
       return `demo-${component}`
     })
@@ -171,8 +169,9 @@ export default {
 }
 
 .demo-block-control .control-icon {
+  display: inline-block;
   font-size: 16px;
-  height: 44px;
+  line-height: 44px;
   transition: .3s;
 }
 .demo-block-control .control-icon.hovering {
