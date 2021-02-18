@@ -1,6 +1,7 @@
 :root {
   --font-family-mono: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-  /*--c-brand: #4569d4;*/
+  --c-brand: #646cff;
+  --c-brand-light: #747bff;
   --code-bg-color: #f9fafb;
   --code-line-height: 24px;
   --code-font-size: 14px;

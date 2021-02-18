@@ -4,7 +4,7 @@ import Button from '../../../src/components/Button.vue'
 import '../../../src/styles/index.css'
 import { registerComponents } from './register-components'
 import './iconfont/iconfont.css'
-import './styles/reset.css'
+import './styles/custom.css'
 import './styles/var.css'
 import './styles/code.css'
 
