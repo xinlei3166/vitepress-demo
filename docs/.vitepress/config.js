@@ -22,13 +22,14 @@ module.exports = {
     // editLinkText: 'Suggest changes to this page',
     lastUpdated: '上次更新',
     algolia: {
+      appId: 'X51HWTCQJJ',
       apiKey: 'ca20f15eb8a667898b65d13f4213ae3d',
       indexName: 'vitepress-demo'
     },
 
     nav: [
       { text: '文档', link: '/guide/' },
-      { text: '组件', link: '/components/button', activeMatch: getSidebarPath('^/components/') },
+      { text: '组件', link: '/components/button', activeMatch: getPath('^/components/') },
       { text: 'API 参考', link: '/api/' },
       { text: '插件', link: '/plugins/' },
       {
@@ -39,10 +40,10 @@ module.exports = {
     ],
 
     sidebar: {
-      [getSidebarPath('/api/')]: 'auto',
-      [getSidebarPath('/plugins/')]: 'auto',
-      [getSidebarPath('/components/')]: getComponentsSidebar(),
-      [getSidebarPath('/guide/')]: getGuideSidebar()
+      [getPath('/api/')]: 'auto',
+      [getPath('/plugins/')]: 'auto',
+      [getPath('/components/')]: getComponentsSidebar(),
+      [getPath('/guide/')]: getGuideSidebar()
     }
   },
   markdown: {
@@ -63,7 +64,7 @@ module.exports = {
 }
 
 // vitepress设置base后，sidebar会出现问题，手动补全path
-function getSidebarPath (path) {
+function getPath (path) {
   return path.replace('/', base)
 }
 
@@ -83,6 +84,10 @@ function getComponentsSidebar() {
         {
           text: 'Modal 对话框',
           link: '/components/modal'
+        },
+        {
+          text: 'Tag 标签',
+          link: '/components/tag'
         }
       ]
     }
