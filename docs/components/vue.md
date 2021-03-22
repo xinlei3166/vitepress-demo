@@ -2,8 +2,6 @@
 
 ## 基本用法
 
-Modal 弹出一个对话框，适合需要定制性更大的场景。
-
 <demo-block>
   <xl-button>默认按钮</xl-button>
   <xl-button type="primary">主要按钮</xl-button>
