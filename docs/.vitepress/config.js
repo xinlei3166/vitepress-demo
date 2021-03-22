@@ -88,6 +88,10 @@ function getComponentsSidebar() {
         {
           text: 'Tag 标签',
           link: '/components/tag'
+        },
+        {
+          text: 'Vue 引用组件',
+          link: '/components/vue'
         }
       ]
     }
