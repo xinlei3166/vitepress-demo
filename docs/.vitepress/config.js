@@ -92,6 +92,10 @@ function getComponentsSidebar() {
         {
           text: 'Vue 引用组件',
           link: '/components/vue'
+        },
+        {
+          text: 'Vue Demo',
+          link: '/components/vue-script'
         }
       ]
     }
