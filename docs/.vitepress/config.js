@@ -56,7 +56,8 @@ module.exports = {
     config: (md) => {
       // use more markdown-it plugins
       // md.use(require('markdown-it-xxx'))
-      const { demoBlock, demoCode } = require('./plugins/md-loader')
+      const { demoBlock, demoCode, demoRender } = require('./plugins/md-loader')
+      // demoRender(md)
       demoBlock(md)
       demoCode(md) // 代码高亮的语言默认为vue，可传入第二个参数自定义语言 demoCode(md, 'html')
     }

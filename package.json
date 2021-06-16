@@ -15,7 +15,7 @@
     "globby": "^11.0.2",
     "markdown-it": "^12.0.4",
     "prettier": "^2.2.1",
-    "vitepress": "0.12.0",
+    "vitepress": "^0.15.3",
     "yaml": "^1.10.0"
   },
   "dependencies": {

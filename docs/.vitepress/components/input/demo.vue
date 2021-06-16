@@ -1,3 +1,6 @@
+<!--<demo>-->
+<!--示例代码-->
+<!--</demo>-->
 <template>
   <input class="input" type="text" v-model="input"/>
   <xl-button type="primary" @click="onSubmit">提交</xl-button>
@@ -8,6 +11,7 @@
   import { ref, defineComponent } from 'vue'
 
   export default defineComponent({
+    name: 'InputDemo',
     setup() {
       const input = ref()
       const content = ref()

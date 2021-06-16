@@ -4,7 +4,7 @@
       @mouseenter="hover=true"
       @mouseleave="hover=false">
     <div class="source">
-      <slot />
+      <demo-source v-if="demoComponent" :component="demoComponent"/>
     </div>
     <div class="meta" ref="meta">
       <div v-if="$slots.description" class="description" ref="description">
@@ -30,25 +30,21 @@
 </template>
 
 <script>
-import { useRoute } from 'vitepress'
-import { ref, reactive, computed, watch, onMounted, onBeforeUnmount, nextTick, getCurrentInstance } from 'vue'
+import { ref, shallowRef, reactive, computed, watch, onMounted, onBeforeMount, onBeforeUnmount, nextTick, getCurrentInstance } from 'vue'
 import { throttle } from 'lodash-es'
 
 export default {
-  name: 'Demo',
+  name: 'DemoCode',
   props: {
-    customClass: String
+    customClass: String,
+    demoComponent: Object
   },
   setup (props, context) {
     const vm = getCurrentInstance()
-    const route = useRoute()
-    const pathArr = ref(route.path.split('/'))
-    const component = computed(() => pathArr.value[pathArr.value.length - 1].split('.')[0])
-    watch(() => route.path, (path) => {
-      pathArr.value = path.split('/')
-    })
+    const pathArr = vm.appContext.config.globalProperties.$page.relativePath.split('/')
+    const component = pathArr[pathArr.length - 1].split('.')[0]
     const blockClass = computed(() => {
-      return `demo-${component.value}`
+      return `demo-${component}`
     })
 
     const hover = ref(false)

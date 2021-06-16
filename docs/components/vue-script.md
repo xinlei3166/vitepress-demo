@@ -1,4 +1,4 @@
-# Vue Demo
+# Vue Script
 
 ## 基本用法
 
