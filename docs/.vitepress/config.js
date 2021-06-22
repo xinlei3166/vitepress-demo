@@ -4,12 +4,7 @@ module.exports = {
   title: 'VitePress',
   description: 'Life is short, Keep it simple.',
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
-    [
-      'style',
-      {},
-      '.page >.container:first-child { max-width: unset !important; padding: 0 12.5rem 4rem 3rem !important;}'
-    ]
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }]
   ],
   base: base,
   themeConfig: {
