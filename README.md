@@ -35,10 +35,3 @@
 ![image-20210615194046416](https://tva1.sinaimg.cn/large/008i3skNly1grj6qx0v0nj31r40nsdkn.jpg)
 
 
-
-- [ ] 传入一个vue组件自动渲染并且显示对应code（WIP）
-
-```js
-<input-doc/>
-```
-

@@ -1,6 +1,8 @@
 # Vue 引用组件
 
-## 基本用法
+## 基础用法
+
+基础的按钮用法。
 
 <demo-block>
   <xl-button>默认按钮</xl-button>

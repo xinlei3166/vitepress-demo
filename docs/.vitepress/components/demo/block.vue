@@ -17,7 +17,7 @@ export default {
 
 <style scoped>
 .demo-block {
-  margin-top: 10px;
+  margin: 10px 0;
 }
 .demo-block .source {
   border: solid 1px #ebebeb;

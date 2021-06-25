@@ -1,4 +1,6 @@
 const base = process.env.BASE || '/'
+const nav = require('./configs/nav')
+const sidebar = require('./configs/sidebar')
 
 module.exports = {
   title: 'VitePress',
@@ -13,33 +15,22 @@ module.exports = {
     docsDir: 'docs',
     docsBranch: 'master',
 
-    // editLinks: true,
-    // editLinkText: 'Suggest changes to this page',
-    lastUpdated: '上次更新',
     algolia: {
       appId: 'X51HWTCQJJ',
       apiKey: 'ca20f15eb8a667898b65d13f4213ae3d',
       indexName: 'vitepress-demo'
     },
 
-    nav: [
-      { text: '文档', link: '/guide/' },
-      { text: '组件', link: '/components/button', activeMatch: getPath('^/components/') },
-      { text: 'API 参考', link: '/api/' },
-      { text: '插件', link: '/plugins/' },
-      {
-        text: '更新日志',
-        link:
-          'https://github.com/xinlei3166/vitepress-demo'
-      }
-    ],
+    // nav
+    nav,
 
-    sidebar: {
-      [getPath('/api/')]: 'auto',
-      [getPath('/plugins/')]: 'auto',
-      [getPath('/components/')]: getComponentsSidebar(),
-      [getPath('/guide/')]: getGuideSidebar()
-    }
+    // sidebar
+    sidebar,
+
+    // page meta
+    editLinks: true,
+    editLinkText: '在 GitHub 上编辑此页',
+    lastUpdated: '上次更新',
   },
   markdown: {
     // options for markdown-it-anchor
@@ -49,82 +40,10 @@ module.exports = {
     toc: { includeLevel: [1, 2] },
 
     config: (md) => {
-      // use more markdown-it plugins
-      // md.use(require('markdown-it-xxx'))
       const { demoBlock, demoCode, demoRender } = require('./plugins/md-loader')
-      // demoRender(md)
       demoBlock(md)
       demoCode(md) // 代码高亮的语言默认为vue，可传入第二个参数自定义语言 demoCode(md, 'html')
+      demoRender(md)
     }
   }
-}
-
-// vitepress设置base后，sidebar会出现问题，手动补全path
-function getPath (path) {
-  return path.replace('/', base)
-}
-
-function getComponentsSidebar() {
-  return [
-    {
-      text: '组件',
-      children: [
-        {
-          text: 'Button 按钮',
-          link: '/components/button'
-        },
-        {
-          text: 'Tabs 标签页',
-          link: '/components/tabs'
-        },
-        {
-          text: 'Modal 对话框',
-          link: '/components/modal'
-        },
-        {
-          text: 'Tag 标签',
-          link: '/components/tag'
-        },
-        {
-          text: 'Vue 引用组件',
-          link: '/components/vue'
-        },
-        {
-          text: 'Vue Demo',
-          link: '/components/vue-script'
-        }
-      ]
-    }
-  ]
-}
-
-function getGuideSidebar() {
-  return [
-    {
-      text: '指南',
-      children: [
-        {
-          text: '文档1',
-          link: '/guide/button'
-        },
-        {
-          text: '文档2',
-          link: '/guide/modal'
-        }
-      ]
-    },
-    {
-      text: '教程',
-      children: [
-        {
-          text: '教程1',
-          link: '/guide/button'
-        },
-        {
-          text: '教程2',
-          link: '/guide/modal'
-        }
-      ]
-    }
-  ]
 }

@@ -1,4 +1,5 @@
 // 参考 https://github.com/element-plus/element-plus/blob/dev/website/md-loader/index.js
+// 参考 https://github.com/calebman/vuepress-plugin-demo-container/blob/master/src/index.js
 const mdContainer = require('markdown-it-container')
 const { highlight } = require('vitepress/dist/node/markdown/plugins/highlight')
 const { genInlineComponent } = require('./utils')
@@ -14,8 +15,7 @@ exports.demoBlock = md => {
         // const description = m && m.length > 1 ? m[1] : ''
         const content = tokens[idx + 1].type === 'fence' ? tokens[idx +
         1].content : ''
-        return `<demo>${content ? content : ''}`
-        // return `<demo>${content ? `<!--vue-demo:${content}:vue-demo-->` : ''}`
+        return `<demo sourceCode="${md.utils.escapeHtml(content)}">${content ? `<!--vue-demo:${content}:vue-demo-->` : ''}`
       }
       return '</demo>'
     }
@@ -47,20 +47,24 @@ exports.demoCode = (md, lang = 'vue') => {
 }
 
 const renderDemoBlock = require('./render')
+const scriptRegexp = /^.*(<script>.*<\/script>).*$/s
+const styleRegexp = /^.*(<style>.*<\/style>).*$/s
 
 exports.demoRender = md => {
-  const id = setInterval(() => {
-    const render = md.render
-    if (typeof render.call(md, '') === 'object') {
-      md.render = (...args) => {
-        let result = render.call(md, ...args)
-        const { template, script, style } = renderDemoBlock(result.html)
-        result.html = template || ''
-        result.dataBlockString = `${script}\n${style}\n${result.dataBlockString}`
-        return result
-      }
-      clearInterval(id)
+  const render = md.render
+  md.render = (...args) => {
+    let result = render.call(md, ...args)
+    const startTag = '<!--vue-demo:'
+    const endTag = ':vue-demo-->'
+    if (result.indexOf(startTag) !== -1 && result.indexOf(endTag) !== -1) {
+      const { template, script, style } = renderDemoBlock(result)
+      result = template
+      const data = md.__data
+      const hoistedTags = data.hoistedTags || (data.hoistedTags = [])
+      hoistedTags.push(script)
+      hoistedTags.push(style)
     }
-  }, 10)
+    return result
+  }
 }
 

@@ -25,6 +25,11 @@
       <transition name="text-slide">
         <span v-show="hover" class="control-text">{{ controlText }}</span>
       </transition>
+      <div class="control-button-wrap">
+        <transition name="text-slide">
+          <span v-show="isExpanded" class="control-button copy-code" @click.stop="onCopy">复制代码片段</span>
+        </transition>
+      </div>
     </div>
   </div>
 </template>
@@ -33,14 +38,16 @@
 import { useRoute } from 'vitepress'
 import { ref, reactive, computed, watch, onMounted, onBeforeUnmount, nextTick, getCurrentInstance } from 'vue'
 import { throttle } from 'lodash-es'
+import clipboardCopy from 'clipboard-copy'
+import { stripTemplate, stripScript, stripStyle } from '../../plugins/md-loader/assist'
 
 export default {
   name: 'Demo',
   props: {
-    customClass: String
+    customClass: String,
+    sourceCode: String
   },
-  setup (props, context) {
-    const vm = getCurrentInstance()
+  setup (props) {
     const route = useRoute()
     const pathArr = ref(route.path.split('/'))
     const component = computed(() => pathArr.value[pathArr.value.length - 1].split('.')[0])
@@ -57,6 +64,11 @@ export default {
     const controlText = computed(() => {
       return isExpanded.value ? '隐藏代码' : '显示代码'
     })
+    // const codepen = reactive({
+    //   html: stripTemplate(props.sourceCode),
+    //   script: stripScript(props.sourceCode),
+    //   style: stripStyle(props.sourceCode)
+    // })
 
     // template refs
     const highlight = ref(null)
@@ -81,6 +93,13 @@ export default {
     const removeScrollHandler = () => {
       window.removeEventListener('scroll', scrollHandler)
     }
+
+    const onCopy = () => {
+      clipboardCopy(props.sourceCode)
+      alert('复制成功')
+    }
+
+    const goCodepen = () => {}
 
     watch(isExpanded, val => {
       meta.value.style.height = val ? `${ codeAreaHeight.value + 1 }px` : '0'
@@ -109,13 +128,14 @@ export default {
       removeScrollHandler()
     })
 
-    return { blockClass, hover, fixedControl, isExpanded, controlText, highlight, description, meta, control }
+    return { blockClass, hover, fixedControl, isExpanded, controlText, highlight, description, meta, control, onCopy }
   }
 }
 </script>
 
 <style scoped>
 .demo-block {
+  margin: 10px 0;
   border: solid 1px #ebebeb;
   border-radius: 3px;
   transition: .2s;
@@ -205,11 +225,18 @@ export default {
 }
 
 .demo-block-control .control-button {
-  line-height: 26px;
+  padding: 14px 0;
+  color: var(--c-brand);
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 10px;
+}
+
+.demo-block-control .control-button-wrap {
+  line-height: 44px;
   position: absolute;
   top: 0;
   right: 0;
-  font-size: 14px;
   padding-left: 5px;
   padding-right: 25px;
 }

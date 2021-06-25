@@ -30,7 +30,6 @@ module.exports = function (content) {
     const style = stripStyle(commentContent)
     const demoComponentContent = genInlineComponentText(html, script) // 示例组件代码内容
     const demoComponentName = `render-demo-${id}` // 示例代码组件名称
-    // templateArr.push(`<template><${demoComponentName} /></template>`)
     templateArr.push(`<${demoComponentName} />`)
     styleArr.push(style)
     componenetsString += `${JSON.stringify(
@@ -46,6 +45,7 @@ module.exports = function (content) {
   let pageScript = ''
   if (componenetsString) {
     pageScript = `<script>
+      import * as Vue from 'vue'
       export default {
         name: 'component-doc',
         components: {
