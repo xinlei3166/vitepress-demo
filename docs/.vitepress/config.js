@@ -40,10 +40,8 @@ module.exports = {
     toc: { includeLevel: [1, 2] },
 
     config: (md) => {
-      const { demoBlock, demoCode, demoRender } = require('./plugins/md-loader')
-      demoBlock(md)
-      demoCode(md) // 代码高亮的语言默认为vue，可传入第二个参数自定义语言 demoCode(md, 'html')
-      demoRender(md)
+      const { demoBlockPlugin } = require('vitepress-theme-demoblock')
+      md.use(demoBlockPlugin)
     }
   }
 }

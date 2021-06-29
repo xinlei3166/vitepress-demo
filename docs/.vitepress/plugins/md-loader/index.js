@@ -2,9 +2,8 @@
 // 参考 https://github.com/calebman/vuepress-plugin-demo-container/blob/master/src/index.js
 const mdContainer = require('markdown-it-container')
 const { highlight } = require('vitepress/dist/node/markdown/plugins/highlight')
-const { genInlineComponent } = require('./utils')
 
-exports.demoBlock = md => {
+exports.useDemoBlock = md => {
   md.use(mdContainer, 'demo', {
     validate (params) {
       return params.trim().match(/^demo\s*(.*)$/)
@@ -22,7 +21,7 @@ exports.demoBlock = md => {
   })
 }
 
-exports.demoCode = (md, lang = 'vue') => {
+exports.useDemoCode = (md, lang = 'vue') => {
   const defaultRender = md.renderer.rules.fence
   md.renderer.rules.fence = (tokens, idx, options, env, self) => {
     const token = tokens[idx]
@@ -50,7 +49,7 @@ const renderDemoBlock = require('./render')
 const scriptRegexp = /^.*(<script>.*<\/script>).*$/s
 const styleRegexp = /^.*(<style>.*<\/style>).*$/s
 
-exports.demoRender = md => {
+exports.useDemoRender = md => {
   const render = md.render
   md.render = (...args) => {
     let result = render.call(md, ...args)

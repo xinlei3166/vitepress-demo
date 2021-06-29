@@ -7,19 +7,13 @@
     "docs:dev": "yarn run register:components && vitepress dev docs",
     "docs:build": "yarn run register:components && cross-env BASE=/vitepress-demo/ vitepress build docs",
     "docs:serve": "vitepress serve docs",
-    "register:components": "node scripts/register-components.js"
+    "register:components": "vitepress-rc"
   },
+  "dependencies": {},
   "devDependencies": {
-    "camelcase": "^6.2.0",
     "cross-env": "^7.0.3",
-    "globby": "^11.0.2",
-    "markdown-it": "^12.0.4",
     "prettier": "^2.2.1",
-    "vitepress": "^0.15.3",
-    "yaml": "^1.10.0"
-  },
-  "dependencies": {
-    "clipboard-copy": "^4.0.1",
-    "lodash-es": "^4.17.20"
+    "vitepress": "^0.15.5",
+    "vitepress-theme-demoblock": "^1.0.3"
   }
 }
