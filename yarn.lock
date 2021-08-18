@@ -1318,10 +1318,10 @@ vite@^2.3.7:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vitepress-theme-demoblock@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/vitepress-theme-demoblock/-/vitepress-theme-demoblock-1.0.4.tgz#42c5b187f8fd6a8c0dcd3ed771dd7ab4b9a1657a"
-  integrity sha512-Eeus+g6YKa7BEWNPyyXZs1nafBIQMUIaNCekKy77mTct83kFIW6mzi1auIR5bJd2YAk4NHLJon5PIP9S5cNxIQ==
+vitepress-theme-demoblock@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/vitepress-theme-demoblock/-/vitepress-theme-demoblock-1.0.8.tgz#fe21a7c4b447c327ba34801ad7328eec0b8ba4c5"
+  integrity sha512-OFpTGvla80hhsoNjTJs8zEScTaoBkUm1/ha80mN2t1Y3wlTN6yIegqYvSVo7DIWLw7SOe8M+FKE5uaqZuXYwCQ==
   dependencies:
     camelcase "^6.2.0"
     globby "^11.0.2"
