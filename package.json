@@ -13,7 +13,7 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "prettier": "^2.2.1",
-    "vitepress": "^0.15.5",
-    "vitepress-theme-demoblock": "^1.0.8"
+    "vitepress": "^0.16.1",
+    "vitepress-theme-demoblock": "^1.0.10"
   }
 }
