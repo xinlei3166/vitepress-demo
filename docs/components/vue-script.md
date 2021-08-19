@@ -45,9 +45,9 @@ export default defineComponent({
 
 :::
 
-## script setup 用法
+## Setup TypeScript 用法
 
-基础的按钮用法。
+setup typescript 用法。
 
 :::demo 使用`type`、`plain`、`round`和`circle`属性来定义 Button 的样式。
 
@@ -58,11 +58,15 @@ export default defineComponent({
   <div style="margin-top: 16px">输出内容：{{ content }}</div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue'
 
-const input = ref()
-const content = ref()
+interface IObject {
+  [k: string]: any
+}
+
+const input = ref<any>()
+const content = ref<any>()
 
 function onSubmit() {
   content.value = input.value
