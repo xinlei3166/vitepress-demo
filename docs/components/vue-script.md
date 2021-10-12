@@ -31,7 +31,7 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style lang="less">
 .input {
   border: 1px solid #ebebeb;
   border-radius: 4px;
@@ -73,7 +73,7 @@ function onSubmit() {
 }
 </script>
 
-<style>
+<style lang="less">
 .input {
   border: 1px solid #ebebeb;
   border-radius: 4px;
