@@ -879,11 +879,6 @@ loader-utils@^1.1.0:
     emojis-list "^3.0.0"
     json5 "^1.0.1"
 
-lodash-es@^4.17.20:
-  version "4.17.21"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
-  integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
-
 lodash.camelcase@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
@@ -1449,15 +1444,14 @@ vite@^2.4.4:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vitepress-theme-demoblock@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/vitepress-theme-demoblock/-/vitepress-theme-demoblock-1.2.0.tgz#efa8888125e6c3f564c9421a8b0ea0bb9fca2369"
-  integrity sha512-FHVBmuzdPvZ9viLhzqvSPD9lHo0zpwiJDULjHdn1s65Oj5Qykwa4pjrFR5EHnd5TosNpzYDI/3ERhGf/+ZzNSw==
+vitepress-theme-demoblock@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/vitepress-theme-demoblock/-/vitepress-theme-demoblock-1.2.2.tgz#0b582dc5d1cc0b4cccc33b245f43518232ea6d55"
+  integrity sha512-bwLfr07weCpxFv9m8ItLYNHFUWYl8PxxvwoLSOwwevqs7yffOxe6TeZ826bU4L+6V2k/pVgg7thtWg4wsWFknQ==
   dependencies:
     camelcase "^6.2.0"
     globby "^11.0.2"
     kolorist "^1.5.0"
-    lodash-es "^4.17.20"
     markdown-it "^12.0.4"
     minimist "^1.2.5"
     prettier "^2.2.1"
