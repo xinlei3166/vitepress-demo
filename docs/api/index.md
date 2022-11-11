@@ -18,9 +18,9 @@
 
 
 
-- [ ] vue代码自动渲染并且显示对应code（目前不支持script和style，有好的解决方案的伙伴请提issue）
+- [x] vue代码自动渲染并且显示对应code（目前已支持script和style，有好的解决方案的伙伴请提issue）
 
-:::demo 使用`type`、`plain`、`round`和`circle`属性来定义 Button 的样式。
+:::demo 使用 `type`、`plain`、`round` 和 `circle` 属性来定义 Button 的样式。
 ```vue
 <xl-button>默认按钮</xl-button>
 <xl-button type="primary">主要按钮</xl-button>

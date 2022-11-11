@@ -1,19 +1,46 @@
-const base = process.env.BASE || '/'
-const nav = require('./configs/nav')
-const sidebar = require('./configs/sidebar')
+import { defineConfig } from 'vitepress'
+import { demoBlockPlugin } from 'vitepress-theme-demoblock'
+import nav from './configs/nav'
+import sidebar from './configs/sidebar'
 
-module.exports = {
-  title: 'VitePress',
-  description: 'Life is short, Keep it simple.',
+export default defineConfig({
+  // lang: 'en-US',
+  title: 'Vitepress',
+  description: '使用 Vitepress 搭建组件库文档站点。',
+
+  lastUpdated: true,
+  cleanUrls: 'without-subfolders',
+
+  base: process.env.BASE || '/',
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }]
   ],
-  base: base,
+
+  markdown: {
+    headers: {
+      level: [0, 0]
+    },
+
+    // options for markdown-it-anchor
+    anchor: { permalink: false },
+
+    // options for markdown-it-toc
+    toc: { includeLevel: [1, 2] },
+
+    // light: #f9fafb, dark: --vp-code-block-bg
+    theme: { light: 'github-light', dark: 'github-dark' },
+
+    config: (md) => {
+      md.use(demoBlockPlugin, {
+        cssPreprocessor: 'less'
+      })
+    }
+  },
+
   themeConfig: {
-    repo: 'xinlei3166/vitepress-demo',
+    outlineTitle: '本页目录',
+    lastUpdatedText: '上次更新',
     logo: '/logo.svg',
-    docsDir: 'docs',
-    docsBranch: 'master',
 
     algolia: {
       appId: 'X51HWTCQJJ',
@@ -27,23 +54,18 @@ module.exports = {
     // sidebar
     sidebar,
 
-    // page meta
-    editLinks: true,
-    editLinkText: '在 GitHub 上编辑此页',
-    lastUpdated: '上次更新',
-  },
-  markdown: {
-    // options for markdown-it-anchor
-    anchor: { permalink: false },
+    editLink: {
+      pattern: 'https://github.com/xinlei3166/vitepress-demo/edit/master/docs/:path',
+      text: '在 GitHub 上编辑此页'
+    },
 
-    // options for markdown-it-toc
-    toc: { includeLevel: [1, 2] },
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/xinlei3166/vitepress-demo' }
+    ],
 
-    config: (md) => {
-      const { demoBlockPlugin } = require('vitepress-theme-demoblock')
-      md.use(demoBlockPlugin, {
-        cssPreprocessor: 'less'
-      })
+    footer: {
+      message: 'Released under the MIT License.',
+      copyright: 'Copyright © 2022-present 君惜'
     }
   }
-}
+})

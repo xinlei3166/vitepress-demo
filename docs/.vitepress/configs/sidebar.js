@@ -1,16 +1,29 @@
-const { getPath } = require('./utils')
+export default {
+  '/api/': getApiSidebar(),
+  '/components/': getComponentsSidebar(),
+  '/guide/': getGuideSidebar()
+}
 
-module.exports = {
-  [getPath('/api/')]: 'auto',
-  [getPath('/components/')]: getComponentsSidebar(),
-  [getPath('/guide/')]: getGuideSidebar()
+function getApiSidebar() {
+  return [
+    {
+      text: '功能',
+      collapsible: true,
+      items: [
+        {
+          text: '已实现',
+          link: '/api/'
+        },
+      ]
+    }
+  ]
 }
 
 function getComponentsSidebar() {
   return [
     {
       text: '组件',
-      children: [
+      items: [
         {
           text: 'Button 按钮',
           link: '/components/button'
@@ -44,26 +57,17 @@ function getGuideSidebar() {
   return [
     {
       text: '指南',
-      children: [
+      items: [
         {
           text: '文档1',
-          link: '/guide/button'
+          link: '/guide/'
         },
         {
           text: '文档2',
-          link: '/guide/modal'
-        }
-      ]
-    },
-    {
-      text: '教程',
-      children: [
-        {
-          text: '教程1',
           link: '/guide/button'
         },
         {
-          text: '教程2',
+          text: '文档3',
           link: '/guide/modal'
         }
       ]

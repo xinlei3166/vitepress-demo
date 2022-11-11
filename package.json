@@ -1,11 +1,12 @@
 {
   "name": "vitepress-demo",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "docs:dev": "yarn run register:components && vitepress dev docs",
-    "docs:build": "yarn run register:components && cross-env BASE=/vitepress-demo/ vitepress build docs",
+    "docs:dev": "pnpm run register:components && vitepress dev docs",
+    "docs:build": "pnpm run register:components && cross-env BASE=/vitepress-demo/ vitepress build docs",
     "docs:serve": "vitepress serve docs",
     "register:components": "vitepress-rc"
   },
@@ -13,11 +14,18 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "less": "^4.1.2",
-    "prettier": "^2.2.1",
-    "vitepress": "^0.16.1",
-    "vitepress-theme-demoblock": "^1.4.1"
+    "prettier": "^2.7.1",
+    "vitepress": "^1.0.0-alpha.28",
+    "vitepress-theme-demoblock": "^2.0.0"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search"
+      ]
+    }
   }
 }
