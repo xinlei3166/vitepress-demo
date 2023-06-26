@@ -14,9 +14,7 @@
   <xl-button type="danger">危险按钮</xl-button>
 </demo-block>
 ```
-
-![image-20210629113103980](https://tva1.sinaimg.cn/large/008i3skNly1gryz9niyqkj31180a2dgm.jpg)
-
+![image](https://github.com/xinlei3166/vitepress-demo/assets/22881872/13820eb2-c0fb-4cd8-95d0-8431782bb6ac)
 
 
 - [x] vue代码自动渲染并且显示对应code（支持script和style）
