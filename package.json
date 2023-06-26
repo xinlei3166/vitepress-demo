@@ -6,16 +6,15 @@
   "license": "MIT",
   "scripts": {
     "docs:dev": "pnpm run register:components && vitepress dev docs",
-    "docs:build": "pnpm run register:components && cross-env BASE=/vitepress-demo/ vitepress build docs",
+    "docs:build": "pnpm run register:components && vitepress build docs --base /vitepress-demo/",
     "docs:serve": "vitepress serve docs",
     "register:components": "vitepress-rc"
   },
-  "dependencies": {},
   "devDependencies": {
-    "cross-env": "^7.0.3",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
     "less": "^4.1.2",
     "prettier": "^2.7.1",
-    "vitepress": "^1.0.0-alpha.30",
+    "vitepress": "^1.0.0-beta.3",
     "vitepress-theme-demoblock": "^2.0.1"
   },
   "engines": {

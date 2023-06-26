@@ -1,5 +1,7 @@
 import { defineConfig } from 'vitepress'
-import { demoBlockPlugin } from 'vitepress-theme-demoblock'
+import { demoblockPlugin, demoblockVitePlugin } from 'vitepress-theme-demoblock'
+import vueJsx from '@vitejs/plugin-vue-jsx'
+import path from 'path'
 import nav from './configs/nav'
 import sidebar from './configs/sidebar'
 
@@ -9,7 +11,7 @@ export default defineConfig({
   description: '使用 Vitepress 搭建组件库文档站点。',
 
   lastUpdated: true,
-  cleanUrls: 'without-subfolders',
+  cleanUrls: true,
 
   base: process.env.BASE || '/',
   head: [
@@ -17,35 +19,39 @@ export default defineConfig({
   ],
 
   markdown: {
-    headers: {
-      level: [0, 0]
-    },
-
-    // options for markdown-it-anchor
-    anchor: { permalink: false },
-
-    // options for markdown-it-toc
-    toc: { includeLevel: [1, 2] },
-
-    // light: #f9fafb, dark: --vp-code-block-bg
     theme: { light: 'github-light', dark: 'github-dark' },
 
     config: (md) => {
-      md.use(demoBlockPlugin, {
-        cssPreprocessor: 'less'
+      md.use(demoblockPlugin, {
+        customClass: 'demoblock-custom'
       })
     }
   },
+
+  vite: {
+    plugins: [demoblockVitePlugin(), vueJsx()],
+    resolve: {
+      alias: {
+        '@alias': path.resolve(__dirname, '../')
+      }
+    }
+  },
+
+  // vue: {},
 
   themeConfig: {
     outlineTitle: '本页目录',
     lastUpdatedText: '上次更新',
     logo: '/logo.svg',
 
-    algolia: {
-      appId: 'X51HWTCQJJ',
-      apiKey: 'ca20f15eb8a667898b65d13f4213ae3d',
-      indexName: 'vitepress-demo'
+    search: {
+      provider: 'local',
+      // provider: 'algolia',
+      // options: {
+      //   appId: 'X51HWTCQJJ',
+      //   apiKey: 'ca20f15eb8a667898b65d13f4213ae3d',
+      //   indexName: 'vitepress-demo'
+      // }
     },
 
     // nav

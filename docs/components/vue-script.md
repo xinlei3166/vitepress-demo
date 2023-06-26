@@ -4,7 +4,7 @@
 
 基础的按钮用法。
 
-:::demo 使用 `type`、`plain`、`round` 和 `circle` 属性来定义 Button 的样式。
+:::demo
 
 ```vue
 <template>
@@ -31,7 +31,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .input {
   border: 1px solid #ebebeb;
   border-radius: 4px;
@@ -49,7 +49,7 @@ export default defineComponent({
 
 setup typescript 用法。
 
-:::demo 使用 `type`、`plain`、`round` 和 `circle` 属性来定义 Button 的样式。
+:::demo
 
 ```vue
 <template>
@@ -73,7 +73,7 @@ function onSubmit() {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .input {
   border: 1px solid #ebebeb;
   border-radius: 4px;
@@ -83,6 +83,42 @@ function onSubmit() {
   margin-right: 16px;
 }
 </style>
+```
+
+:::
+
+
+## Tsx 用法
+
+tsx 用法。
+
+:::demo
+
+```tsx
+import { ref, defineComponent } from 'vue'
+import '@alias/styles/index.css'
+
+interface IObject {
+  [k: string]: any
+}
+
+export default defineComponent({
+  setup() {
+    const input = ref<any>()
+    const content = ref<any>()
+    
+    function onSubmit() {
+      content.value = input.value
+    }
+
+    return () => (
+    <>
+      <input class="input input-tsx" type="text" v-model={input.value} />
+      <xl-button type="primary" onClick={onSubmit}>提交</xl-button>
+      <div style="margin-top: 16px">输出内容：{ content.value }</div>
+    </>)
+  }
+})
 ```
 
 :::

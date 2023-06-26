@@ -6,7 +6,7 @@
 
 基础的标签用法。
 
-:::demo 使用 `type`、`plain`、`round` 和 `circle` 属性来定义 Tag 的样式。
+:::demo
 ```vue
 <template>
   <xl-button>默认按钮</xl-button>

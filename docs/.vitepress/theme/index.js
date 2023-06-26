@@ -1,7 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import 'vitepress-theme-demoblock/dist/theme/styles/index.css'
 import { useComponents } from './useComponents'
-import './styles/index.css'
+import './style.css'
 import Button from '../../../src/components/Button.vue'
 import '../../../src/styles/index.css'
 
