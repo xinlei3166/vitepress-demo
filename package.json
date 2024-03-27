@@ -8,7 +8,8 @@
     "docs:dev": "pnpm run register:components && vitepress dev docs",
     "docs:build": "pnpm run register:components && vitepress build docs --base /vitepress-demo/",
     "docs:serve": "vitepress serve docs",
-    "register:components": "vitepress-rc"
+    "register:components": "vitepress-rc",
+    "deploy": "zsh scripts/gh-pages.sh"
   },
   "devDependencies": {
     "@vitejs/plugin-vue-jsx": "^3.1.0",
