@@ -11,11 +11,11 @@
     "register:components": "vitepress-rc"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue-jsx": "^3.0.1",
-    "less": "^4.1.2",
-    "prettier": "^2.7.1",
-    "vitepress": "^1.0.0-beta.3",
-    "vitepress-theme-demoblock": "^3.0.3"
+    "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "less": "^4.2.0",
+    "prettier": "^3.2.5",
+    "vitepress": "^1.0.1",
+    "vitepress-theme-demoblock": "^3.0.5"
   },
   "engines": {
     "node": ">=16.0.0"
