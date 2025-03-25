@@ -12,20 +12,21 @@
     "deploy": "zsh scripts/gh-pages.sh"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "@vitejs/plugin-vue-jsx": "^4.1.2",
     "less": "^4.2.0",
     "prettier": "^3.2.5",
-    "vitepress": "^1.0.1",
-    "vitepress-theme-demoblock": "^3.0.5"
+    "vitepress": "^1.6.3",
+    "vitepress-theme-demoblock": "^3.1.1"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=20.0.0"
   },
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [
         "@algolia/client-search"
       ]
-    }
+    },
+    "overrides": {}
   }
 }
