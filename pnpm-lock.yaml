@@ -21,8 +21,8 @@ importers:
         specifier: ^1.6.3
         version: 1.6.3(@algolia/client-search@5.22.0)(less@4.2.2)(postcss@8.5.3)(search-insights@2.17.3)
       vitepress-theme-demoblock:
-        specifier: ^3.1.1
-        version: 3.1.1(@algolia/client-search@5.22.0)(less@4.2.2)(postcss@8.5.3)(search-insights@2.17.3)
+        specifier: ^3.1.3
+        version: 3.1.3(@algolia/client-search@5.22.0)(less@4.2.2)(postcss@8.5.3)(search-insights@2.17.3)
 
 packages:
 
@@ -1371,8 +1371,8 @@ packages:
       terser:
         optional: true
 
-  vitepress-theme-demoblock@3.1.1:
-    resolution: {integrity: sha512-wHvS2gkIBMAQ2iWH56WjA4UXb6VXbeUSkBmsPSRUPQn0mmMPLFfMLfK2tAPWXN0Hr89E4YjMXPTIAZTXpyiWTQ==}
+  vitepress-theme-demoblock@3.1.3:
+    resolution: {integrity: sha512-+FCOfNhILbcVuoaGQioojNTl/DwtuKljtWKFbhhPmB6yJi7yl6kDcVqjF8Va57ZuMYHEKXlik15qCiuB+7F7zg==}
     engines: {node: '>=16.0.0'}
     hasBin: true
 
@@ -2997,7 +2997,7 @@ snapshots:
       fsevents: 2.3.3
       less: 4.2.2
 
-  vitepress-theme-demoblock@3.1.1(@algolia/client-search@5.22.0)(less@4.2.2)(postcss@8.5.3)(search-insights@2.17.3):
+  vitepress-theme-demoblock@3.1.3(@algolia/client-search@5.22.0)(less@4.2.2)(postcss@8.5.3)(search-insights@2.17.3):
     dependencies:
       '@floating-ui/vue': 1.1.6(vue@3.5.13)
       '@mdit-vue/plugin-sfc': 2.1.3
@@ -3020,7 +3020,6 @@ snapshots:
       unified: 11.0.5
       unist-util-visit: 5.0.0
       vitepress: 1.6.3(@algolia/client-search@5.22.0)(less@4.2.2)(postcss@8.5.3)(search-insights@2.17.3)
-      vitepress-theme-demoblock: 'link:'
       vue: 3.5.13
       yaml: 2.7.0
     transitivePeerDependencies:
